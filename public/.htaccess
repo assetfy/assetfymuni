@@ -1,0 +1,11 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Permitir acceso a archivos existentes (incluyendo Vite en /build)
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # Redirigir todo lo demás al index.php (Laravel)
+    RewriteRule ^ index.php [L]
+</IfModule>

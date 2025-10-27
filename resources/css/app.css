@@ -1,0 +1,31 @@
+/* resources/css/app.css */
+
+/* 1. Importaciones de tus estilos personalizados */
+@import './form.css';
+@import './buttons.css';
+@import './style.css';
+@import './dashboard-usuario.css';
+@import './botones.css';
+@import './chatbot.css';
+@import './dashboard-empresa.css';
+@import './adicional.css';
+
+/* 2. Directivas de Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 3. Estilos personalizados adicionales dentro de @layer */
+@layer components {
+    [x-cloak] {
+        display: none;
+    }
+
+    .carousel-item img {
+        width: 100%; /* Ancho del 100% para que la imagen se ajuste al contenedor del carrusel */
+        height: 300px; /* Altura específica para las imágenes del carrusel */
+        object-fit: contain; /* Para que la imagen cubra completamente el contenedor */
+    }
+
+    /* Añade aquí cualquier otro estilo personalizado */
+}

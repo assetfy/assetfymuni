@@ -1,0 +1,136 @@
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+#chatbot-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #5a67d8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    animation: breathing 1.5s infinite;
+    color: white;
+    font-size: 30px;
+}
+
+.breathing {
+    animation: breathing 1.5s infinite;
+}
+
+@keyframes breathing {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#chatbox {
+    position: fixed;
+    bottom: 160px; /* Mover el chatbox más arriba para que el botón esté visible */
+    right: 20px;
+    width: 300px;
+    height: 350px; /* Hacer el contenedor del chat un poco más alto */
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
+    flex-direction: column;
+}
+
+#chatbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #5a67d8;
+    color: white;
+}
+
+#chatbox-body {
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 60px); /* Ajustar la altura del cuerpo para incluir el área de entrada de texto */
+}
+
+#chatOutput {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+}
+
+.chat-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    word-wrap: break-word;
+}
+
+.chat-message.user {
+    background-color: #5a67d8;
+    color: white;
+    justify-content: flex-end;
+    text-align: right;
+    align-self: flex-end;
+}
+
+.chat-message.bot {
+    background-color: #e2e8f0;
+    justify-content: flex-start;
+    text-align: left;
+    align-self: flex-start;
+}
+
+.chat-message i {
+    margin-right: 10px;
+}
+
+#userInputContainer {
+    padding: 10px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    background: #fff;
+}
+
+#userInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+#sendButton {
+    padding: 10px;
+    background-color: #5a67d8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.notification {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    padding: 10px;
+    background: #5a67d8;
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,4 @@
+<!-- Vista (Blade) -->
+<div>
+  
+</div>

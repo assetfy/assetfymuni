@@ -1,0 +1,276 @@
+/* =========================================================
+   SIDEBAR "MOTO" — TEMA CLARO COMPLETO
+   ========================================================= */
+:root{
+  /* Ajustes rápidos */
+  --sb-top: 70px;          /* alto del header */
+  --sb-w-closed: 76px;     /* ancho rail cerrado */
+  --sb-w-open: 280px;      /* ancho abierto */
+
+  /* Tema claro */
+  --sb-bg:       #ffffff;  /* fondo del rail */
+  --sb-surface:  #F7F9FC;  /* superficies/hover/flyout */
+  --sb-border:   #E6EAF0;  /* bordes */
+  --sb-text:     #0F172A;  /* texto principal (slate-900) */
+  --sb-dim:      #475569;  /* texto atenuado (slate-600) */
+
+  /* Azul de marca */
+  --sb-accent:   #4C8DFF;
+}
+
+/* ===== Contenedor principal del sidebar ===== */
+.sidebar{
+  position: fixed;
+  top: var(--sb-top); left: 0;
+  height: calc(100vh - var(--sb-top));
+  width: var(--sb-w-closed);
+  padding: 10px 10px 12px;
+  background: var(--sb-bg);
+  border-right: 1px solid var(--sb-border);
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;                 /* para flyout */
+  transition: width .25s ease;
+  z-index: 98;
+}
+.sidebar.open{ width: var(--sb-w-open); }
+
+/* ===== Header / logo + wordmark adaptable ===== */
+.sidebar .logo_details{
+  height: 64px; display:flex; align-items:center; gap:10px; padding:6px 8px;
+}
+.sidebar .logo_details .sidebar-logo{
+  width:40px; height:40px; border-radius:12px;
+  border:1px solid var(--sb-border); padding:6px; cursor:pointer;
+  background:#fff; flex:0 0 auto;
+}
+/* Wordmark que se adapta al ancho disponible (en abierto) */
+.sidebar .logo_details .brand-wordmark{
+  display:block;
+  flex:1 1 auto;
+  height:26px; max-height:30px; width:auto;
+  object-fit:contain; object-position:left center;
+  opacity:0; transition: opacity .18s ease;
+  max-width: calc(var(--sb-w-open) - 110px);
+}
+.sidebar.open .logo_details .brand-wordmark{ opacity:1; }
+
+/* ===== Buscador ===== */
+.sidebar .search-box{
+  height:44px; margin:6px 4px 8px;
+  display:flex; align-items:center; gap:8px; padding:0 10px;
+  background:#fff; border:1px solid var(--sb-border); border-radius:10px;
+}
+.sidebar .search-box .bx-search{ color:var(--sb-dim); font-size:18px; height:auto; line-height:1; cursor:pointer; }
+.sidebar .search-box input{
+  display:none; width:100%; height:36px; background:transparent; border:none; outline:0; color:var(--sb-text);
+}
+.sidebar.open .search-box input{ display:block; }
+/* Centrar la lupa cuando el rail está cerrado */
+.sidebar:not(.open) .search-box{ justify-content:center; }
+
+/* ===== Lista scrollable ===== */
+.sidebar .nav-list{
+  margin-top:6px; padding:0 2px 20px; /* aumentá si usás dock abajo */
+  height: calc(100% - 64px - 52px);
+  overflow:auto; -webkit-overflow-scrolling:touch;
+}
+.sidebar .nav-list::-webkit-scrollbar{ width:8px; }
+.sidebar .nav-list::-webkit-scrollbar-thumb{ background:#e9eef6; border-radius:10px; }
+
+/* =========================================================
+   ÍTEMS — ALINEACIÓN PERFECTA DE ÍCONOS
+   ========================================================= */
+.sidebar li{ list-style:none; margin:6px 2px; }
+.sidebar li a{
+  display:flex; align-items:center; gap:10px;
+  height:44px; padding:0 10px;
+  text-decoration:none;
+  color:var(--sb-dim);
+  background:transparent; border:1px solid transparent; border-radius:12px;
+  transition: background .15s ease, color .15s ease, border-color .15s ease, box-shadow .15s ease;
+}
+/* Reset total (evita sticky/top heredados) */
+.sidebar li i{
+  position: static !important; top:auto !important;
+  min-width:42px; width:42px; height:42px; line-height:42px;
+  display:inline-flex; align-items:center; justify-content:center;
+  font-size:18px; color:var(--sb-dim);
+  border-radius:10px; margin:0;
+}
+
+/* Estados (fallback + color-mix si el navegador lo soporta) */
+.sidebar li a:hover{
+  /* Fallback */
+  background:#EEF4FF; border-color:#CFE0FF; color:var(--sb-text); box-shadow:0 2px 8px rgba(76,141,255,.12);
+  /* Moderno */
+  background: color-mix(in srgb, var(--sb-accent) 10%, #ffffff);
+  border-color: color-mix(in srgb, var(--sb-accent) 35%, var(--sb-border));
+}
+.sidebar li a:hover i{ color: var(--sb-accent); }
+
+.sidebar li.active > a{
+  /* Fallback */
+  background:#E6F0FF; border-color:#BFD4FF; color:var(--sb-text); box-shadow:0 2px 10px rgba(76,141,255,.16);
+  /* Moderno */
+  background: color-mix(in srgb, var(--sb-accent) 14%, #ffffff);
+  border-color: color-mix(in srgb, var(--sb-accent) 45%, var(--sb-border));
+}
+.sidebar li.active i{ color: var(--sb-accent); }
+
+.sidebar .link_name{ white-space:nowrap; color: var(--sb-text); }
+
+/* =========================================================
+   SUBMENÚ — EXPANDIDO (sidebar abierto)
+   ========================================================= */
+.sidebar li .sub-menu{
+  display:none;
+  margin-top:6px; padding-left:8px;
+  border-left:1px dashed #DFE7F2;
+}
+.sidebar li.open .sub-menu{ display:block; }
+
+/* Grid para alinear ícono + texto de subitems */
+.sidebar li .sub-menu li a{
+  display:grid;
+  grid-template-columns: 28px 1fr;  /* col 1 fija para icono */
+  align-items:center;
+  column-gap:10px;
+  min-height:36px; height:auto;
+  padding:6px 10px;
+  font-size:13px;
+  border-radius:10px;
+  color:var(--sb-dim);
+}
+.sidebar li .sub-menu li a i{
+  width:28px; height:28px; line-height:28px; font-size:16px; margin:0; color:var(--sb-dim);
+}
+.sidebar li .sub-menu li a:hover,
+.sidebar li .sub-menu li.active > a{
+  /* Fallback */
+  background:#EEF4FF; border-color:#CFE0FF; color:var(--sb-text);
+  /* Moderno */
+  background: color-mix(in srgb, var(--sb-accent) 10%, #ffffff);
+  border-color: color-mix(in srgb, var(--sb-accent) 30%, var(--sb-border));
+}
+.sidebar li .sub-menu li a:hover i,
+.sidebar li .sub-menu li.active > a i{ color: var(--sb-accent); }
+
+/* Por si tu HTML trae .ml-1 en el label */
+.sidebar li .sub-menu .ml-1{ margin-left:0 !important; }
+
+/* =========================================================
+   RAIL COLAPSADO — alineación y hover
+   ========================================================= */
+.sidebar:not(.open) .nav-list{ padding:6px 6px 20px; }
+.sidebar:not(.open) li{ margin:8px 2px; }
+.sidebar:not(.open) li a{ justify-content:center; padding:0; gap:0; width:100%; }
+.sidebar:not(.open) li i{ margin:0 auto; }
+.sidebar:not(.open) .nav-list > li > a .link_name{ display:none !important; } /* oculta texto del rail */
+.sidebar:not(.open) li > a .chev{ display:none !important; }
+.sidebar:not(.open) li a:hover{
+  /* Fallback */
+  background:#EEF4FF; border-color:#CFE0FF; color:var(--sb-text); box-shadow:0 2px 8px rgba(76,141,255,.12);
+  /* Moderno */
+  background: color-mix(in srgb, var(--sb-accent) 10%, #ffffff);
+  border-color: color-mix(in srgb, var(--sb-accent) 35%, var(--sb-border));
+}
+.sidebar:not(.open) li a:hover i{ color: var(--sb-accent); }
+
+/* =========================================================
+   FLYOUT EN COLAPSADO — panel lateral de submenú
+   ========================================================= */
+.sidebar:not(.open) li.has-submenu{ position:relative; }
+
+/* Panel base del flyout */
+.sidebar:not(.open) .sub-menu.flyout{
+  position:fixed;
+  left: calc(var(--sb-w-closed) + 6px);
+  top: 0;
+  min-width: 260px;
+  max-width: 360px;
+  max-height: calc(100vh - 16px);
+  overflow:auto;
+  background: #ffffff;
+  border:1px solid var(--sb-border);
+  border-radius: 16px;
+  padding: 10px 8px;
+  display: none;                 /* se activa con .show desde JS */
+  z-index: 999;
+  box-shadow: 0 18px 42px rgba(13,16,22,.12);
+}
+.sidebar:not(.open) .sub-menu.flyout.show{ display:block; }
+
+/* Ítems del flyout — grid 32px + auto, íconos alineados */
+.sidebar:not(.open) .sub-menu.flyout li a{
+  display:grid;
+  grid-template-columns: 32px 1fr;
+  align-items:center;
+  column-gap:12px;
+  padding:10px 14px;
+  min-height:36px; height:auto;
+  border-radius:12px;
+  color:var(--sb-dim);
+}
+.sidebar:not(.open) .sub-menu.flyout li a i{
+  width:32px; height:32px; line-height:32px; font-size:16px; margin:0; color:var(--sb-dim);
+}
+/* Mostrar labels en el flyout aunque el rail esté cerrado */
+.sidebar:not(.open) .sub-menu.flyout .link_name,
+.sidebar:not(.open) .sub-menu.flyout .sub_link_name{
+  display:inline !important; opacity:1 !important; white-space:nowrap; color:var(--sb-text);
+}
+.sidebar:not(.open) .sub-menu.flyout li a:hover{
+  /* Fallback */
+  background:#EEF4FF; border-color:#CFE0FF; color:var(--sb-text);
+  /* Moderno */
+  background: color-mix(in srgb, var(--sb-accent) 10%, #ffffff);
+  border-color: color-mix(in srgb, var(--sb-accent) 30%, var(--sb-border));
+}
+.sidebar:not(.open) .sub-menu.flyout li a:hover i{ color: var(--sb-accent); }
+
+/* Bordes sutiles por nivel */
+.sidebar:not(.open) .sub-menu.flyout{ border-left: 1px solid rgba(76,141,255,.08); }
+.sidebar:not(.open) .sub-menu.flyout .sub-menu.flyout{ border-left-color: rgba(76,141,255,.25); }
+
+/* =========================================================
+   ESTADO DE BÚSQUEDA (cuando hay texto en el input)
+   ========================================================= */
+.sidebar.searching .sub-menu{ display:block !important; }  /* fuerza visibilidad para ver el filtrado */
+
+/* =========================================================
+   OVERLAY MÓVIL Y CONTENIDO
+   ========================================================= */
+.overlay{ display:none; position:fixed; inset:0; background:rgba(0,0,0,.25); z-index:60; }
+@media (max-width:1024px){
+  .overlay[x-show="sidebarOpen"]{ display:block; }
+  .sidebar{
+    transform: translateX(-100%);
+    left:0; top: var(--sb-top);
+    height: calc(100vh - var(--sb-top));
+    width: var(--sb-w-open);
+  }
+  .sidebar.open{ transform: none; }
+}
+
+/* Empuje del contenido (si lo usás) */
+.home-section{
+  position:relative; min-height:100vh; top:var(--sb-top);
+  left:var(--sb-w-closed); width: calc(100% - var(--sb-w-closed));
+  transition: left .25s ease, width .25s ease;
+}
+@media (min-width:1025px){
+  .sidebar-open .home-section{
+    left:var(--sb-w-open); width: calc(100% - var(--sb-w-open));
+  }
+}
+
+/* =========================================================
+   TOOLTIP (tema claro)
+   ========================================================= */
+.tippy-box[data-theme~='ghost']{
+  background:#ffffff; color:var(--sb-text);
+  border:1px solid var(--sb-border); border-radius:10px;
+  box-shadow:0 12px 30px rgba(13,16,22,.12);
+}
+.tippy-box[data-theme~='ghost'] .tippy-arrow{ color:#ffffff; }

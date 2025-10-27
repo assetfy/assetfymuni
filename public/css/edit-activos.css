@@ -1,0 +1,262 @@
+/* ================== MODAL EDICIÓN DE BIEN ================== */
+#editar-bien {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1f2937;
+    font-size: 14px;
+    padding: 1rem;
+}
+
+/* Nombre del activo */
+#editar-bien .mb-4 label {
+    font-weight: 600;
+    color: #374151;
+}
+
+/* Imágenes */
+#editar-bien .image-wrapper {
+    position: relative;
+    width: 130px;
+    height: 130px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #d1d5db;
+    background-color: #f9fafb;
+}
+
+#editar-bien .image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#editar-bien .delete-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    background-color: #ef4444;
+    color: white;
+    font-size: 0.75rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+}
+
+/* QR */
+#editar-bien .qr-box {
+    width: 150px;
+    border: 2px dotted #06b6d4;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
+    text-align: center;
+    background-color: #f8fafc;
+}
+
+#editar-bien .qr-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
+}
+
+/* Botón imprimir */
+#editar-bien .print-btn {
+    margin-top: 0.75rem;
+    border: 1px solid #06b6d4;
+    color: #0891b2;
+    background-color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#editar-bien .print-btn:hover {
+    background-color: #f0fdfa;
+}
+
+/* ================== TABS ================== */
+#editar-bien-tabs {
+    margin-top: 2rem;
+}
+
+#editar-bien-tabs .tabs-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    background-color: #f3f4f6;
+    padding: 0.5rem;
+    border-radius: 2rem;
+    max-width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+
+#editar-bien-tabs .tabs-nav::-webkit-scrollbar {
+    display: none;
+}
+
+#editar-bien-tabs .tabs-nav li {
+    list-style: none;
+}
+
+#editar-bien-tabs .tabs-nav button {
+    all: unset;
+    cursor: pointer;
+    padding: 0.5rem 1.25rem;
+    border-radius: 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    background-color: transparent;
+    color: #374151;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+#editar-bien-tabs .tabs-nav button i {
+    font-size: 1rem;
+    color: #4b5563;
+    transition: color 0.2s ease;
+}
+
+#editar-bien-tabs .tabs-nav .tab-active {
+    background-color: #a7f3d0;
+    color: #065f46;
+    font-weight: 600;
+}
+
+#editar-bien-tabs .tabs-nav .tab-active.tab-detalles {
+    background-color: #c7d2fe;
+    color: #4338ca;
+}
+
+#editar-bien-tabs .tabs-nav .tab-active.tab-atributos {
+    background-color: #bbf7d0;
+    color: #15803d;
+}
+
+#editar-bien-tabs .tabs-nav .tab-active.tab-garantia {
+    background-color: #f58afd;
+    color: #060302;
+}
+
+#editar-bien-tabs .tabs-nav .tab-active.tab-org {
+    background-color: #fcd34d;
+    color: #92400e;
+}
+
+#editar-bien-tabs .tabs-nav .tab-label {
+    display: inline;
+}
+
+/* ================== RESPONSIVE: ICON-ONLY ON MOBILE ================== */
+@media (max-width: 640px) {
+    #editar-bien-tabs .tabs-nav {
+        justify-content: space-around;
+        gap: 0.25rem;
+        border-radius: 0.75rem;
+        padding: 0.5rem 0.25rem;
+    }
+
+    #editar-bien-tabs .tabs-nav button {
+        padding: 0.6rem;
+        border-radius: 0.75rem;
+        flex-direction: column;
+        min-width: 50px;
+    }
+
+    #editar-bien-tabs .tabs-nav .tab-label {
+        display: none;
+    }
+
+    #editar-bien-tabs .tabs-nav button i {
+        font-size: 1.3rem;
+    }
+}
+
+/* ================== IMPRESIÓN ================== */
+/* En pantalla: ocultar contenedores (siguen en el DOM) */
+.print-only-qr, .print-masiva { display: none; }
+
+@media print {
+  @page { size: A4; margin: 0; }
+  html, body { margin:0 !important; padding:0 !important; }
+
+  /* ⬅️ CLAVE: ocultar TODOS los hijos de <body> salvo el clon */
+  html[data-print] body > * { display: none !important; }
+  html[data-print] body > #print-root { display: block !important; }
+
+  /* Evitar que el clon “arranque” en nueva página */
+  #print-root { break-before: avoid; page-break-before: auto; }
+
+  /* ===== individual ===== */
+  html[data-print="individual"] #print-root {
+    position: static !important;
+    margin: 0 auto !important;
+    padding: 12mm;              /* margen visual */
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    width: fit-content; max-width: 100%;
+  }
+
+  /* ===== masiva ===== */
+  html[data-print="masiva"] #print-root {
+    position: static !important;
+    background: #fff !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* Cada hoja de masiva */
+  #print-root .print-page {
+    box-sizing: border-box;
+    break-after: page;            /* genera salto DESPUÉS de cada hoja */
+    page-break-after: always;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  /* Evita hoja extra al final (last-of-type es más seguro que last-child) */
+  #print-root .print-page:last-of-type {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  /* Evita cortes dentro de grillas/tarjetas */
+  #print-root .grid, #print-root .qr-paper {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* —— Detalles visuales del QR —— */
+  #print-root .qr-wrap {
+    width: var(--qrs); height: var(--qrs);
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 1mm; outline: .35mm dashed rgba(51,65,85,.85); outline-offset: -.25mm;
+  }
+  #print-root .qr-wrap .qr-img {
+    width: 100%; height: 100%; object-fit: contain; border-radius: .8mm;
+  }
+  #print-root .qr-paper {
+    border: .45mm dashed #9CA3AF !important; border-radius: 3mm !important;
+    background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  #print-root .label-name {
+    margin: 0 !important; line-height: 1.02 !important; font-weight: 650 !important;
+    text-align: center !important; color: #000 !important;
+    overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    word-break: break-word;
+  }
+  @media print {
+  #print-root .label-name { font-size: inherit !important; }
+}
+}

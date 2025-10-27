@@ -1,0 +1,245 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    min-height: 100vh;
+    justify-content: center; 
+    align-items: center; 
+    background-color: #ccdff5;
+}
+
+@media (max-width: 1480px) {
+    #hero {
+        min-height: 70vh;
+        background-size: contain;
+    }
+
+    .header-image {
+        display: none;
+    }
+}
+
+.header-image {
+    width: 47%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.title {
+    font-size: 2.5em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #0b445d;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.login-container {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    padding: 20px;
+}
+
+.login-container a {
+    text-decoration: none;
+    color: #0b445d;
+    font-size: 1.5em;
+    margin-left: 10px;
+    margin-right: 20px;
+    margin-top: 50px;
+}
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.register-button {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5em;
+    border: 2px solid #0b445d;
+    padding: 5px 50px;
+    border-radius: 5px;
+    background-color: #0b445d;
+}
+
+.register-button:hover{
+    border: 2px solid #2785ad;
+    background-color: #2785ad;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+    width: 45%;
+}
+
+.text-container h1 {
+    color: black;
+    font-size: 2.5rem;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.info-box {
+    flex: 1 1 calc(33.333% - 40px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    margin: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.info-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.info-box h2 {
+    color: black;
+    margin: 10px 0;
+}
+
+.info-box p {
+    color: #333;
+    margin: 10px 0;
+}
+
+.info-box .number {
+    font-size: 2em;
+    font-weight: bold;
+    color: #4E7CA0;
+}
+
+@media (max-width: 768px) {
+    .info-box {
+        flex: 1 1 100%;
+    }
+}
+
+.feature-box {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.feature-box img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.feature-box p {
+    margin: 0;
+}
+
+.bg-body-custom {
+    background-color: #BBDEFB;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #ebebeb;
+}
+
+.pulse {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    background-color: #73A2C7;
+    border: 2px solid #73A2C7;
+    font: inherit;
+    line-height: 1;
+    padding: 1em 1em;
+    transition: all 0.6s ease;
+    text-align: center;
+    border-radius: 0.5rem;
+}
+
+.pulse:hover,
+.pulse:focus {
+    background-color: white;
+    color: #73A2C7;
+    box-shadow: 0 0 0 0.5em rgba(115, 162, 199, 0.7);
+    -webkit-animation: pulse 2s;
+    animation: pulse 2s;
+}
+
+@-webkit-keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(115, 162, 199, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(115, 162, 199, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(115, 162, 199, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(115, 162, 199, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(115, 162, 199, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(115, 162, 199, 0);
+    }
+}

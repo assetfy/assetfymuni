@@ -1,0 +1,138 @@
+  body{
+    font-family:  'Poppins', sans-serif;
+    }
+  
+    /* Etiquetas */
+    .etiqueta:hover{
+      background-color: #616160ee !important;
+    }
+  
+  /* Tablas */
+  
+  .box {
+      color: #ffffff !important;
+      background-color: #a73113ee !important;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+    }
+    
+    .box:hover {
+      background-color: #a73113ee !important;
+      color: #e0f0ff;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+  
+    .box2 {
+      color: #ffffff !important;
+      background-color: #0840daee !important;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+    }
+    
+    .box2:hover {
+      background-color: #002eac !important;
+      color: #e0f0ff;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+      .blue-text {
+        color: blue; /* Color del texto en azul */
+        text-decoration: none; /* Elimina la línea subrayada */
+    }
+  
+    .box3 {
+      color: #0e0d0d !important;
+      background-color: #e0dd0bee !important;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+    }
+    
+    .box3:hover {
+      background-color: rgb(158, 156, 2) !important;
+      color: #e0f0ff;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+  
+    .box4 {
+      color: #050505 !important;
+      background-color: #ffffffee !important;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+    }
+    
+    .box4:hover {
+      background-color: #ffffff !important;
+      color: #000000;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+  
+    .box5 {
+      color: #ffffff !important;
+      background-color: #fc0101ee !important;
+      border-bottom-left-radius: 22px;
+      border-bottom-right-radius: 5px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+      transition: all 0.7s cubic-bezier(.25,.8,.25,1);
+    }
+    
+    .box5:hover {
+      background-color: #a00000 !important;
+      color: #ffffff;
+      border-bottom-left-radius: 5px;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    }
+
+    .enlarge-on-hover:hover {
+      transform: scale(1.1); /* Cambia el tamaño al 110% */
+      transition: transform 0.3s ease; /* Agrega una transición suave */
+  }
+  
+  /* Estilo cuando se pasa el mouse sobre las opciones */
+.nav-link:hover {
+  color: #ffffff; /* Cambiar a un color más blanco */
+  background-color: #000000; /* Cambiar el color de fondo al pasar el mouse */
+}
+
+/* Estilo para la opción seleccionada */
+.nav-link.active {
+  color: #ffffff; /* Color blanco para la opción seleccionada */
+  background-color: #000000; /* Color de fondo diferente para la opción seleccionada */
+}
+
+  @keyframes scale {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+
+  .custom-animation {
+    animation-name: scale;
+    animation-duration: 1s; /* Duración de la animación en segundos */
+    animation-timing-function: ease-in-out; /* Función de temporización de la animación */
+    animation-iteration-count: infinite; /* Repetir la animación indefinidamente */
+  }
