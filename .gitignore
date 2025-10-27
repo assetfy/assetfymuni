@@ -27,3 +27,6 @@ public/storage/profile-photos/KcVkH3zZ7KubMrRKR4IefYVU8gY7ksGkHo3anqnG.png
 public/storage/profile-photos/4rwzgsPofXPqojbTObpVsmKyKY9p37eLMrOwNivf.png
 public/storage/profile-photos/IQY6oQg4DDdDm7sdyG729JUr1Mks9xWtaaWlJREV.png
 docker-compose.override.yml
+package-lock.json
+bootstrap/cache/services.php
+bootstrap/cache/packages.php
