@@ -30,3 +30,4 @@ docker-compose.override.yml
 package-lock.json
 bootstrap/cache/services.php
 bootstrap/cache/packages.php
+bootstrap/cache/services.php
