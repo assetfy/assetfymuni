@@ -40,7 +40,7 @@ WORKDIR /var/www
 ENV APP_ENV=production \
     APP_DEBUG=false \
     APP_KEY=base64:f5f3JdOVRKtYtt9Xir3o3/yq6/mdC0Nm54RQpyytezc= \
-    APP_URL=https://laradev-production.up.railway.app/ \
+    APP_URL=https://assetfyinventory-production.up.railway.app/ \
 LOG_CHANNEL=stack \
 LOG_DEPRECATIONS_CHANNEL=null \
 LOG_LEVEL=debug \
