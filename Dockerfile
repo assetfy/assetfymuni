@@ -41,12 +41,16 @@ ENV APP_ENV=production \
     APP_DEBUG=false \
     APP_KEY=base64:f5f3JdOVRKtYtt9Xir3o3/yq6/mdC0Nm54RQpyytezc= \
     APP_URL=https://laradev-production.up.railway.app/ \
+LOG_CHANNEL=stack \
+LOG_DEPRECATIONS_CHANNEL=null \
+LOG_LEVEL=debug \
+DEBUGBAR_ENABLED=false \
 DB_CONNECTION=sqlsrv \
-DB_HOST=186.122.178.151 \
+DB_HOST=localhost \
 DB_PORT=1433 \
-DB_DATABASE=Proyecto_Activos \
-DB_USERNAME=sa \
-DB_PASSWORD=B4s33v0lv3r323 \
+DB_DATABASE=assetfymuni \
+DB_USERNAME=mvplara \
+DB_PASSWORD=l4r4Mvp! \
 DB_ENCRYPT=yes \
 DB_TRUST_SERVER_CERTIFICATE=true
 
