@@ -93,8 +93,8 @@ return [
                 PDO::ATTR_EMULATE_PREPARES => true, // Emulación de preparados
                 'MultipleActiveResultSets' => true, // Habilita MARS
             ],
-            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
-            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+             'encrypt' => env('DB_ENCRYPT', 'yes'),
+             'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
     ],
